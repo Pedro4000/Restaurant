@@ -1,0 +1,18 @@
+
+
+<main>
+        <!-- Affichage du template lié à la vue -->
+        <h2><i class="fa fa-star"></i> Commande payée</h2>
+
+<h3>Merci d'avoir commandé au 3WA Restaurant !</h3>
+
+<p data-order-step="success">Votre commande a bien été enregistrée, elle vous sera livrée dans les plus brefs délais.</p>
+<p class="layout-center"><img alt="Commande payée" src="/dev/Restaurant (corrigé)/application/www/images/success.gif"></p>
+
+<a class="button button-primary" href="<?= $requestUrl?>/stripe">Accueil</a>
+
+
+<!-- Classes de gestion du formulaire de commande -->
+<!-- Ce code JavaScript n'est chargé QUE depuis l'URL /order/payment/success -->
+<script src="/dev/Restaurant (corrigé)/application/www/js/classes/BasketSession.class.js"></script>
+<script src="/dev/Restaurant (corrigé)/application/www/js/classes/OrderForm.class.js"></script>    </main>

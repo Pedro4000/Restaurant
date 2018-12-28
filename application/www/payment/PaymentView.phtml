@@ -1,0 +1,75 @@
+
+<main>
+        <!-- Affichage du template lié à la vue -->
+        <h2><i class="fa fa-check"></i> Payer la commande</h2>
+
+<section class="invoice">
+    <p><strong><?= $_SESSION['user']['FirstName'] ?> <?= $_SESSION['user']['LastName'] ?></strong></p>
+    <p><?= $_SESSION['user']['Address'] ?></p>
+    <p><?= $_SESSION['user']['ZipCode'] ?> <span class="city">P<?= $_SESSION['user']['City'] ?></span></p>
+</section>
+
+<table class="generic-table meal-list">
+    <caption class="graou">Récapitulatif de la commande</caption>
+    <thead>
+        <tr>
+            <th>Nom</th>
+            <th class="number">Quantité</th>
+            <th class="number">Prix Unitaire</th>
+            <th class="number">Prix Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+            <td colspan="3">Total HT</td>
+            <td>23.70 €</td>
+        </tr>
+        <tr>
+            <td colspan="3">TVA (20 %)</td>
+            <td>4.74 €</td>
+        </tr>
+        <tr>
+            <td class="colorful" colspan="3">Total TTC</td>
+            <td class="colorful">28.44 €</td>
+        </tr>
+        <tr class="small-notice">
+            <td colspan="4">Commandé le 2018-11-05 15:15:47</td>
+        </tr>
+    </tfoot>
+    <tbody>
+                    <tr>
+                <td>
+                    <img src="">
+                    <em>Coca-Cola</em>
+                </td>
+                <td class="number">5</td>
+                <td class="number">3.00 €</td>
+                <td class="number">15.00 €</td>
+            </tr>
+                    <tr>
+                <td>
+                    <img src="">
+                    <em>Dr. Pepper</em>
+                </td>
+                <td class="number">3</td>
+                <td class="number">2.90 €</td>
+                <td class="number">8.70 €</td>
+            </tr>
+            </tbody>
+</table>
+
+<hr>
+<h3>Merci de bien vouloir procéder au paiement de la commande.</h3>
+
+<form name="hiddenForm" class="generic-form" method="POST" action="<?= $requestUrl?>/receipt">
+    <input type="hidden" value="" name="hiddenOrder">
+	<ul> 
+		<li>
+			<input class="button button-primary" type="submit" value="Payer">
+			<a class="button button-cancel small" href="<?= $requestUrl?>">Annuler</a>
+		</li>
+	</ul>
+</form>    
+<script src="<?= $wwwUrl ?>/js/payment.js"></script>
+</main>
+</main>

@@ -1,0 +1,66 @@
+<main>
+        <!-- Affichage du template lié à la vue -->
+        <h2><i class="fa fa-shopping-cart"></i> Passer une commande</h2>
+
+<form data-order-step="run" id="order-form" class="generic-form hidden" style="display: block;">
+
+    <!-- Champ caché stockant le prix de vente du produit alimentaire sélectionné -->
+    <input type="hidden" name="salePrice" value="3">
+
+    <aside class="error-message hidden">
+        <h3><i class="fa fa-warning"></i> Il y a <em class="total-error-count">1</em> erreur(s) dans le formulaire !</h3>
+        <p></p>
+    </aside>
+
+    <fieldset>
+        <legend>Ajouter un article</legend>
+        <ul>
+            <li>
+                <label for="meal">Nom :</label>
+                <select id="meal" name="meal">
+                    <option value="1">Coca-Cola</option>
+
+                <?php foreach ($meals as $meal) { 
+                    ?>
+                    <option value="<?= $meal['Id'] ?>"><?= $meal['Name'] ?></option>
+                 <?php } ?>
+
+                </select>
+                <article id="meal-details" class="meal-details no-left-label">
+                    <img src="http://localhost/sites/developpement/resto-vide/application/www/images/meals/coca.jpg" alt="Photo du produit">
+                    <p>Mmmm, le Coca-Cola avec 10 morceaux de sucres et tout plein de caféine !</p>
+                    <span>Prix : <strong>3,00&nbsp;€</strong></span>
+                </article>
+            </li>
+            <li>
+                <label for="quantity">Quantité :</label>
+                <input id="quantity" class="quantity" type="text" maxlength="2" name="quantity" data-name="Quantité" data-type="positive-integer" data-required="">
+            </li>
+            <li>
+                <button class="button button-primary no-left-label" id="add-order" type="submit">Ajouter</button>
+            </li>
+        </ul>
+    </fieldset>
+
+    <fieldset>
+        <legend>Récapitulatif de la commande</legend>
+        <section id="order-summary"><table class="generic-table">
+
+    </table></section>
+    </fieldset>
+</form>
+
+<ul class="link-list">
+    <li>
+        <a href="<?= $requestUrl?>/payment"><button id="validate-order" class="button button-primary">Valider la commande</button></a>
+        <a class="button button-cancel small" href="<?= $requestUrl?>/order/payment">Annuler</a>
+    </li>
+</ul>
+</form>
+
+
+<!-- Classes de gestion du formulaire de commande -->
+<!-- Ce code JavaScript n'est chargé QUE depuis l'URL /order/payment/success -->
+<script src="/developpement/resto-vide/index.php/order"></script>
+<script src="<?= $wwwUrl ?>/js/ajax.js"></script>
+</main>
